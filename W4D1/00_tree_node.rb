@@ -7,8 +7,8 @@ class PolyTreeNode
         @children = []
     end
 
-    
-    def parent=(other_node)
+    # child_node.parent = other_node
+    def parent=(other_node) #this call on the child. other_node is parent.
         unless other_node == nil
             @parent.children.reject! { |ele| ele == self } if @parent != nil
             @parent = other_node

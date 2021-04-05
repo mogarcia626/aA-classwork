@@ -18,33 +18,45 @@ class KnightPathFinder
         @considered_positions = []
     end
 
-    def new_move_positions(pos)
-        moves = KnightPathFinder.valid_moves(pos) # all valid moves based on position
-        moves.reject! { |move| @considered_positions.include?(move) }
-        moves.each { |move| @considered_positions << move }
-        moves # returns potential children/positions
+    def new_move_positions(parent_node)
+        moves = KnightPathFinder.valid_moves(parent_node.value) 
+        moves.reject! { |move| @considered_positions.include?(move) }   #remove dup moves
+        moves.each { |move| @considered_positions << move }     #adds to 'considered pos' arr
+        nodes_arr = moves.map {|move| PolyTreeNode.new(move) }  #create node instances
+        nodes_arr.each do |node|    #sets the parent and child node relationship
+            node.parent = parent_node
+        end
+        return nodes_arr #returns arr w/ nodes with parent children relationships set
     end
 
-    # run NMP on root node ==> pos that we can turn into new node instances
-    # all the new nodes will have P/C relationship. Then we will run NMP on 
-    # the children
-    def build_move_tree #bfs
-        
-        remaining_pos = new_move_positions(@start_position)
-        # use new_move_positions to create children nodes
-        # ths is where we initialize nodes (root node (val = start position)
-        
+    def build_move_tree
+        remaining_pos = [@start_position]
 
         while remaining_pos.length > 0
-            remaining_pos.each do |pos|
+            remaining_pos.each do |pos| # SP
                 remaining_pos += next_move_positions(pos)
-                node = PolyTreeNode.new(remaining_pos.shift)
-                
+                remaining_pos.shift
             end
         end
+    end
+    # search for end_pos in the move tree
+    # return the tree node instance containing end_pos
+    # returns a node
+
+    # thoughts: call BMT, find path,
+    def find_path(end_pos)
+        build_move_tree
+        nodes_arr = [root_node]
+        
+        
 
     end
-    
+
+    # race back from the node to the root using PolyTreeNode#parent
+    # returns array of positions
+    def trace_path_back 
+
+    end
 end
 
 =begin
