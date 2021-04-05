@@ -13,8 +13,8 @@ class KnightPathFinder
     end
 
 
-    def initialize(position)
-        @parent ||= nil
+    def initialize(position,parent=nil)
+        @parent = parent
         @position = position
         @root_node = if @parent ? @parent.root_node : @position    
         @children = [] # possible future moves 
@@ -22,21 +22,52 @@ class KnightPathFinder
     end
 
     def new_move_positions(pos)
-        moves = KnightPathFinder.valid_moves(pos)
+        moves = KnightPathFinder.valid_moves(pos) # all valid moves based on position
         moves.reject! { |move| @considered_positions.include?(move) }
         moves.each { |move| @considered_positions << move }
         moves
     end
 
-    
-  
+    def build_move_tree #bfs
+        remaining_pos = new_move_positions(@position)
 
+        while remaining_pos > 0
+            remaining_pos.each do |pos|
+                KnightPathFinder.new(pos,@position)
+                next_move_positions(pos)
+
+            end
+        end
+
+    end
     
 end
 
 =begin
-    
+    def parent=(other_node)
+        unless other_node == nil
+            @parent.children.reject! { |ele| ele == self } if @parent != nil
+            @parent = other_node
+                if !other_node.children.include?(self) 
+                    other_node.children << self
+                end
+        else
+            @parent = nil
+        end 
+    end
 
+    def bfs(target_value)
+        arr = [self]
+        
+        while arr.length > 0            
+            arr.each do |node|
+                return node if node.value == target_value                
+                arr += node.children 
+                arr.shift                
+            end
+        end
+        nil
+    end
 
     def initialize(position)
         @position = position
