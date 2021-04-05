@@ -12,10 +12,9 @@ class KnightPathFinder
         valid_moves        
     end
 
-
-    def initialize(position,parent=nil)
+    def initialize(starting_position,parent=nil)
         @parent = parent
-        @position = position
+        @starting_position = position
         @root_node = if @parent ? @parent.root_node : @position    
         @children = [] # possible future moves 
         @considered_positions = [@root_node]
@@ -25,10 +24,17 @@ class KnightPathFinder
         moves = KnightPathFinder.valid_moves(pos) # all valid moves based on position
         moves.reject! { |move| @considered_positions.include?(move) }
         moves.each { |move| @considered_positions << move }
-        moves
+        moves # returns potential children/positions
     end
 
+    # run NMP on root node ==> pos that we can turn into new node instances
+    # all the new nodes will have P/C relationship. Then we will run NMP on 
+    # the children
     def build_move_tree #bfs
+        root_node = Polynode.new(starting_position)
+        # use new_move_positions to create children nodes
+
+        # ths is where we initialize nodes (root node (val = start position)
         remaining_pos = new_move_positions(@position)
 
         while remaining_pos > 0
