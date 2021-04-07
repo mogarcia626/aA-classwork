@@ -15,7 +15,7 @@ class KnightPathFinder
         valid_moves        
     end
 
-
+#test
 
     def initialize(start_position)        
         @start_position = start_position
