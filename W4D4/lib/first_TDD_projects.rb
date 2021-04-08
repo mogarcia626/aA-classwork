@@ -21,4 +21,32 @@ class Array
         result
     end
 
+
+    def my_transpose
+        transposed = Array.new(self[0].length) {Array.new(self.length)}
+        self.each_with_index do |row, idx1|
+            row.each_with_index do |ele, idx2|
+                transposed[idx2][idx1] = ele   
+            end
+        end
+        transposed
+    end
+
+end
+
+
+def stock_picker(arr)
+    l = arr.length 
+    pair = []
+    max = 0 
+    (0...l).each do |i|
+        ((i + 1)...l).each do |j|
+            profit = arr[j] - arr[i] 
+            if profit > max
+                pair = [i, j] 
+                max = profit 
+            end
+        end
+    end
+    pair  
 end
