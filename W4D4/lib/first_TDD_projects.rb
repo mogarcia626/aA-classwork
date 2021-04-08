@@ -50,3 +50,30 @@ def stock_picker(arr)
     end
     pair  
 end
+
+
+# 3 sub-arrays  
+
+class Game   #create an array length # of stacks # of pieces 
+    def initialize(stacks, pieces)
+        #@stacks  2D array of stacks
+        #@num of pieces
+    end
+
+    
+    
+end
+
+
+class Piece
+    def initialize(value)
+        @value = value
+    end
+
+end
+
+
+
+stack   stack   stack   
+
+
