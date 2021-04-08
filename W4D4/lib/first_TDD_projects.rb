@@ -6,4 +6,19 @@ def my_uniq(arr)
     new_arr
 end
 
-# p my_uniq([1, 2, 1, 3, 3])
+
+class Array
+
+    def two_sum
+        result = []
+        self.each_with_index do |num1, idx1|
+            self.each_with_index do |num2, idx2|
+                if idx2 > idx1 && num1 + num2 == 0
+                    result << [idx1, idx2]
+                end
+            end
+        end
+        result
+    end
+
+end
