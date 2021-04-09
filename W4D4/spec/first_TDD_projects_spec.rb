@@ -65,7 +65,8 @@ describe Piece do
 
     describe '#initialize' do 
         it 'should equal value' do 
-            expect(@value).to eq value 
+            piece = Piece.new(1)
+            expect(piece.value).to eq (1) 
         end
     end
 
@@ -76,23 +77,23 @@ describe Column do
 
     describe '#initialize' do 
         it 'should have @stack equal empty array' do 
-            expect(@stack).to eq ([])
+            expect(column.stack).to eq ([])
         end
         it 'should take the index' do 
-            expect(@index).to eq index 
+            expect(column.index).to eq 3 
         end
     end
 
     describe '#take_piece' do 
 
 
-        it 'ensure stack is empty' do 
+        it 'ensure stack is not empty' do 
             expect(column.take_piece).to raise_error ('this stack is empty')
         end
         it 'should pull from top and return the piece that was taken' do 
             (1..3).each { |i| column.stack << Piece.new(i) }
-            expect(column.take_piece).to eq (3)
-            expect(column.stacks[-1].index).to eq (2)
+            expect(column.take_piece.value).to eq (3)
+            expect(column.stack[-1].value).to eq (2)
         end
 
 

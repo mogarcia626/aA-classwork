@@ -91,7 +91,7 @@ end
 
 class Column
 
-    attr_reader :index 
+    attr_reader :index, :stack
 
     def initialize(index)
         @stack = [] 
@@ -99,10 +99,15 @@ class Column
     end
 
     def take_piece 
-        # pull from top 
+        if @stack.length > 0
+            last_piece = @stack.pop 
+        else
+            raise ArgumentError("this stack is empty")
+        end
         # ensure stack is not empty 
         # self[i] = new_move 
         # should return the piece that was taken 
+        last_piece
     end
 
     def drop_piece(piece)
@@ -115,6 +120,7 @@ end
 
 
 class Piece
+    attr_reader :value
 
     def initialize(value)
         @value = value
