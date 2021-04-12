@@ -13,7 +13,7 @@ class Node
     "#{@key}: #{@val}"
   end
 
-  def remove
+  def remove #wreckt self
     # optional but useful, connects previous link to next link
     # and removes self from list.
     self.prev.next = self.next
@@ -22,6 +22,8 @@ class Node
 end
 
 class LinkedList
+  include Enumerable
+
   def initialize
     @head = Node.new(:head, true)
     @tail = Node.new(:tail, true)
@@ -47,10 +49,12 @@ class LinkedList
   end
 
   def get(key)
+    self.each { |node| return node.val if node.key == key}
+    nil
   end
 
   def include?(key)
-    self.each { |node| return node.key == key}
+    self.each { |node| return true if node.key == key}
     false
   end
 
@@ -70,7 +74,10 @@ class LinkedList
   end
 
   def remove(key)
-
+    self.each do |node|
+      node.remove if node.key == key
+      break if node.key == key
+    end
   end
 
   def each(&prc)
@@ -81,8 +88,8 @@ class LinkedList
     end
   end
 
-  # uncomment when you have `each` working and `Enumerable` included
-  # def to_s
-  #   inject([]) { |acc, link| acc << "[#{link.key}, #{link.val}]" }.join(", ")
-  # end
+  #uncomment when you have `each` working and `Enumerable` included
+  def to_s
+    inject([]) { |acc, link| acc << "[#{link.key}, #{link.val}]" }.join(", ")
+  end
 end
