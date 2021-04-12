@@ -35,11 +35,11 @@ class LinkedList
   end
 
   def first
-    @head
+    @head.next
   end
 
   def last
-    @tail
+    @tail.prev
   end
 
   def empty?
@@ -50,19 +50,35 @@ class LinkedList
   end
 
   def include?(key)
+    self.each { |node| return node.key == key}
+    false
   end
 
   def append(key, val)
-    
+    new_node = Node.new(key, val)
+    new_node.prev = @tail.prev
+    new_node.next = @tail
+    new_node.prev.next = new_node
+    @tail.prev = new_node    
   end
 
   def update(key, val)
+    self.each do |node|
+      node.val = val if node.key==key
+      break if node.key==key
+    end
   end
 
   def remove(key)
+
   end
 
-  def each
+  def each(&prc)
+    working_node = self.first
+    until working_node == @tail
+      prc.call(working_node)
+      working_node = working_node.next
+    end
   end
 
   # uncomment when you have `each` working and `Enumerable` included
