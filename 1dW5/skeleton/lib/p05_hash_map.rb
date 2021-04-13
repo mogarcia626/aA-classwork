@@ -14,7 +14,13 @@ class HashMap
   end
 
   def set(key, val)
-    @store[bucket(key)].update(key, val)
+    temp = @store[bucket(key)] #key, val)
+    if temp.empty?
+      temp.append(key,val)
+    else
+      temp.update(key, val)
+    end
+      nil
   end
 
   def get(key)
