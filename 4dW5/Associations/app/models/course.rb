@@ -11,6 +11,8 @@
 #
 class Course < ApplicationRecord
 
+    validates :name, presence: true
+
     has_many( :enrollments,
         primary_key: :id,
         foreign_key: :course_id,

@@ -10,9 +10,7 @@
 #
 class Enrollment < ApplicationRecord
 
-    validates :course_id, presence: true
-
-   belongs_to( :users,
+    belongs_to( :users,
     primary_key: :id, 
     foreign_key: :student_id,
     class_name: :User )
