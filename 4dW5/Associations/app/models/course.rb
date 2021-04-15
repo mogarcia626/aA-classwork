@@ -11,9 +11,15 @@
 #
 class Course < ApplicationRecord
 
-    belongs_to( :enrollments,
+    has_many( :enrollments,
         primary_key: :id,
         foreign_key: :course_id,
         class_name: :Enrollment
     )
+
+     has_many( :users,
+        through: :enrollments,
+        source: :users
+    )
+
 end
