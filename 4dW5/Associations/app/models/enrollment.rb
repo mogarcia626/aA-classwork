@@ -10,7 +10,7 @@
 #
 class Enrollment < ApplicationRecord
 
-    validates :id, :course_id, presence: true
+    validates :course_id, presence: true
 
    belongs_to( :users,
     primary_key: :id, 

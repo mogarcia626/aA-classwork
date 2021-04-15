@@ -20,6 +20,11 @@ class User < ApplicationRecord
         source: :courses
     )
 
+    has_many( :instructor,
+        primary_key: :id,
+        foreign_key: :instructor_id,
+        class_name: :Course
+    )
 
     
 end

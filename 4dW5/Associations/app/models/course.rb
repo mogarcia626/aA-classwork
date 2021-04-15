@@ -17,9 +17,19 @@ class Course < ApplicationRecord
         class_name: :Enrollment
     )
 
-     has_many( :users,
+    has_many( :enrolled_students,
         through: :enrollments,
         source: :users
     )
+
+    belongs_to( :instructor,
+        primary_key: :id,
+        foreign_key: :instructor_id,
+        class_name: :User
+    )
+
+    def prereq
+        Course.find_by_id(prereq_id)
+    end
 
 end
