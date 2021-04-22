@@ -6,7 +6,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-leo = User.create(name: 'Leonardo', email: 'leo@ninja.gov')
-don = User.create(name: 'Donatello', email: 'don@ninja.gov')
-raph = User.create(name: 'Raphael', email: 'raph@ninja.gov')
-mike = User.create(name: 'Michelangelo', email: 'mike@ninja.gov')
+leo = User.create(username: 'Leonardo')
+don = User.create(username: 'Donatello')
+raph = User.create(username: 'Raphael')
+mike = User.create(username: 'Michelangelo')
