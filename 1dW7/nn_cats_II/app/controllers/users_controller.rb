@@ -6,6 +6,7 @@ class UsersController < ApplicationController
 
     def create
         @user = User.new(user_params)
+        debugger
         if @user.save
             # login(@user)
             redirect_to user_url(@user)
@@ -13,5 +14,9 @@ class UsersController < ApplicationController
             flash.now[:errors] = @user.errors.full_messages
             render :new
         end
+    end
+
+    def user_params
+        params.require(:user).permit(:username, :password)
     end
 end
