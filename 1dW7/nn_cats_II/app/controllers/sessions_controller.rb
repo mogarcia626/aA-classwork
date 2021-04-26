@@ -10,8 +10,8 @@ class SessionsController < ApplicationController
             login(user)
             redirect_to cats_url
         else
+            render :new
         end
-        
     end
 
     def destroy
