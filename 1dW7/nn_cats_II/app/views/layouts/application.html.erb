@@ -8,7 +8,14 @@
     <%= javascript_include_tag 'application' %>
   </head>
 
+  <h1><h1>
+
   <body>
+    <%if !!curr_user%>
+      <h1>Welcome <%=@curr_user.username%><h1>
+      <form action= "<%= sessions_url %>" method="post">
+      <input name="_method" type="hidden" value="delete">
+    <%end%>
     <%= yield %>
   </body>
 </html>

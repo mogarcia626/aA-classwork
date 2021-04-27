@@ -3,12 +3,12 @@
 <form action= "<%= users_url %>" method="post">
     <input type="hidden" name="_method" value="<%= :post %>">
 
-    <label for="username">User Name:</label>
-    <input type="text" name="user[username]" id="username" value="<%= @user.username %>">
+    <label> User Name:
+    <input type="text" name="user[username]">
+    </label>
     
-    
-    <label for="password">Password: 
-    <input id="password" name="user[password]" type="password" value="<%= @user.password %>">
+    <label> Password: 
+    <input name="user[password]" type="password">
     </label>
 
     <input type="submit" value="Login">
