@@ -2,6 +2,7 @@
   display: flex;
   justify-content: space-between;
   padding: 10px;
+  align-items: center;
 }
 
 .left-nav > ul,
@@ -10,7 +11,7 @@
   font-family: sans-serif;
   font-size: 14px;
   text-transform: uppercase; 
-  
+  align-items: center;
 }
 
 .left-nav {
@@ -34,7 +35,8 @@
     }
 
     > li:last-of-type {
-  
+      margin-left: 5px;
+      font-size: 16px
     }
   }
   
