@@ -8,14 +8,14 @@ span, article, footer, time, small {
   margin: 0;
   padding: 0;
   border: 0;
-  outline: auto;
+  outline: inherit;
   font: inherit;
-  color: black;
-  text-align: justify;
-  text-decoration: none;
-  vertical-align: baseline;
-  box-sizing: content-box;
-  background: none;
+  color: inherit;
+  text-align: inherit;
+  text-decoration: inherit;
+  vertical-align: inherit;
+  box-sizing: inherit;
+  background: inherit;
 }
 
 ol, ul {
