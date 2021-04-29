@@ -1,18 +1,26 @@
 .main-content {
-
+	display: grid;
 	margin-top: 10px;
-
+	grid-template-columns: 2fr 1fr;
 	header {
 		font-weight: bold;
 	}
 }
 
 
-.main-story {
-	margin-top: 10px;
 
+.main-story {
+	display: grid;
+	margin-top: 10px;
+	grid-template-columns: 1fr 2fr;
+	padding-right: 20px;
+
+	.col-2-3 {
+		grid-column: 2/3;
+	} 
 	.col-1-3 {
-		
+		grid-column: 1/3;
+		padding-right: 20px;		
 	}
 
 	ul {
@@ -64,6 +72,10 @@ article {
 }
 
 .opinion {
+	display: grid;
+	margin-top: 10px;
+	padding-right: 20px;
+	grid-template: 5px 1fr 60% / 1fr 1fr;
 
 	.col-1-2:first-child {
 		
