@@ -9,7 +9,21 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
+  <body>    
+    <% if flash[:errors] %>
+      <%= flash[:errors].join(",") %>
+    <% end %>
+        
     <%= yield %>
+    <br>
+    <% if logged_in? %>
+    <form action="<%= session_url %>" method="post">
+    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+    <input type="hidden" name="_method" value="delete">
+    <p>Signed in as <%= current_user.username %></p>
+    <button>Sign Out</button>
+    </form>  
+    
+    <% end %>    
   </body>
 </html>

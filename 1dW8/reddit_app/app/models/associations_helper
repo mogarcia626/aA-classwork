@@ -1,0 +1,21 @@
+
+
+Sub
+titile
+description
+moderator_id
+
+Post
+title
+url
+content
+sub_id
+author_id
+
+User have many subs (moderator)
+User have many posts (author)
+
+Sub has many posts
+Sub belongs to user (moderator)
+Post belongs to user (author)
+Post belongs to sub
