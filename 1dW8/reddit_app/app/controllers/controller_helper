@@ -1,0 +1,18 @@
+
+
+/subs/:sub_id/posts
+/subs/:sub_id/posts/:id
+/subs/:sub_id/posts/new
+/subs/:sub_id/posts/edit
+/subs/:sub_id/posts/ get#index
+/subs/:sub_id/posts/:id get#show
+
+subs#index want a list of links to the individual sub
+subs#show link to the individual sub's posts
+subs#edit edit for for sub title/description
+subs#new create a new sub with title/description
+
+post#index not needed bc subs#show
+
+posts#show 
+
