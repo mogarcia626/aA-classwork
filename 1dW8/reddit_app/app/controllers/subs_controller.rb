@@ -8,7 +8,7 @@ class SubsController < ApplicationController
 
   def show
     @sub = Sub.find_by(id: params[:id])
-    redirect_to sub_url(@sub)
+    render :show
   end
 
   def new

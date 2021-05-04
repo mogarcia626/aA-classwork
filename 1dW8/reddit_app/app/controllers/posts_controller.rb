@@ -2,6 +2,7 @@ class PostsController < ApplicationController
   before_action :require_login, except: [:show]
 
   def new
+ 
     @post = Post.new
     render :new
   end
@@ -29,6 +30,7 @@ class PostsController < ApplicationController
   def create
     @post = Post.new(post_params)
     @post.author_id = current_user.id
+
     if @post.save
       redirect_to post_url(@post)
     else

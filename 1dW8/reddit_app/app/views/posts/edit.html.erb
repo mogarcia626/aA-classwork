@@ -1,16 +1,23 @@
-<h1>Posts#edit</h1>
+<h1>Edit Post</h1>
 
+<form action= "<%= post_url(@post) %>" method="post">
+<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+<input type="hidden" name="_method" value="patch">
+<label for="title">Title:</label>
+<input type="text" name="post[title]" id="title" value = <%= @post.title%>>
+<br>
+<label for="url">URL:</label>
+<input type="url" name="post[url]" id="url" value = <%= @post.url%>>
+<br>
+<label for="content">Content:</label>
+<textarea name="post[content]" id="content" cols="30" rows="10"> <%= @post.content %> </textarea>
+<br>
+<button>Edit Post</button>
+</form>
 
-
-
-
-<p>Find me in app/views/posts/edit.html.erb</p>
-
-
-
-<% if @post.author_id == current_user.id %>
+<!--<%# if @post.author_id == current_user.id %>
     Edit form
-<% end %>
+<%# end %>-->
 
 
 

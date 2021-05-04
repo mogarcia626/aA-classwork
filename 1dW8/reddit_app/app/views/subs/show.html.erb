@@ -1,2 +1,29 @@
-<h1>Subs#show</h1>
-<p>Find me in app/views/subs/show.html.erb</p>
+<h1><%= @sub.title %></h1>
+<h2><%= @sub.description %></h2>
+
+
+<ul>
+<% @sub.posts.each do |post| %>
+    <li>
+        <a href="<%= post_url(post) %>"><%= post.title %></a>
+        <br>
+        <%= post.url if post.url%>
+        <br>
+        <%= post.content if post.content %>
+        <br>
+        <%= User.find_by(id: post.author_id).username%>
+        <br>
+    </li>
+<% end %>
+</ul>
+
+
+<% if logged_in? %>
+    
+    <form action="<%= new_post_url %>" method="get">
+        <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+        <button>Create Post</button>
+    </form>
+
+<% end %>
+
