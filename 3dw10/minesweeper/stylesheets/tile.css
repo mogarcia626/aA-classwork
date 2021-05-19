@@ -1,0 +1,25 @@
+.tile {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height:32px;
+  width:32px;
+  background-color: grey;
+  border-style: outset;
+  border-width: 2px;
+  border-color: lightgray;
+  font-size: larger;
+}
+
+.tileRow {
+  display: flex;
+  flex-direction: row;
+}
+
+.unrevealed:hover{
+  background-color: rgba(0, 0, 0, .8);
+}
+
+.revealed {
+  background-color: lightgray;
+}

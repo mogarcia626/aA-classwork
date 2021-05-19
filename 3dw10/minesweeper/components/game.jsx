@@ -12,8 +12,20 @@ export default class Game extends React.Component {
         this.updateGame = this.updateGame.bind(this)
     };
 
-    updateGame() {
+    updateGame(tile, altHeld) {
       //code here
+      console.log(tile);
+
+      if (altHeld) {
+        tile.toggleFlag();
+      } else {
+        tile.explore();
+      }
+
+      console.log(tile);
+
+      this.setState(prevState => ({board: prevState.board}));
+      
     };
 
     render() {
