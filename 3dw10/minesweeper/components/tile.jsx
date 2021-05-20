@@ -4,7 +4,7 @@ export default class Tile extends React.Component {
   constructor(props) {
     super(props)
     this.tile = this.props.tile;
-
+    console.log(this.props.tile);
   }
 
   render () {
@@ -55,10 +55,3 @@ export default class Tile extends React.Component {
 // two '✌'
 // three '👌'
 // four+ '🙏'
-
-
-// Revealed          UnRevealed
-
-
-
-// BOMB        Empty       BombAdjacent

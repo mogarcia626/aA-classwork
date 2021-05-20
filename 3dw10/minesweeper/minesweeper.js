@@ -109,6 +109,13 @@ export class Board {
         }
       });
     });
+    if (lost === true) {
+      this.grid.forEach(row => {
+        row.forEach(tile => {
+          tile.explored = true
+        });
+      });
+    }
     return lost;
   }
 

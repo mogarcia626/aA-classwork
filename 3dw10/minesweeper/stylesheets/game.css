@@ -3,9 +3,16 @@
   flex-direction: column;
   justify-content: center;
   text-align: center;
+  margin: auto;
 }
 
 h1 {
+  
   font-size: 42px;
   margin-bottom: 10px;
+}
+
+h2 {
+  font-size: 20px;
+  margin-bottom: 8px;
 }

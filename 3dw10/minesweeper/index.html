@@ -7,6 +7,17 @@
     <link rel="stylesheet" href="./stylesheets/reset.css">
     <link rel="stylesheet" href="./stylesheets/board.css">
     <link rel="stylesheet" href="./stylesheets/tile.css">
+    <link rel="stylesheet" href="./stylesheets/game.css">
+    <link rel="stylesheet" href="./stylesheets/modal.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        $(function () {
+            $("body").on("click", ".js-modal-close", function (event) {
+                event.preventDefault();
+                $(".modal").removeClass("is-open");
+            });
+        });
+    </script> 
     <script src="./bundle.js"></script>
     <title>Minesweeper</title>
 </head>

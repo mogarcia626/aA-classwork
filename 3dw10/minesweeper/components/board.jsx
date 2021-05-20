@@ -19,11 +19,9 @@ export default class Board extends React.Component {
       )
     })
 
-    console.log(mappedBoard)
 
     return (
       <div className="inBoard">
-        {console.log("in Board")}
         {mappedBoard}
       </div>
     )
