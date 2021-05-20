@@ -1,5 +1,5 @@
 import configureStore from './store/store';
-import {receiveTodos} from './actions/todo_actions.js';
+
 // import React from 'react';
 // import ReactDOM from 'react-dom';
 

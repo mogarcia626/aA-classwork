@@ -1,7 +1,6 @@
 {
   "name": "to_dos",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -21,5 +20,6 @@
     "redux": "^4.1.0",
     "webpack": "^5.37.1",
     "webpack-cli": "^4.7.0"
-  }
+  },
+  "description": ""
 }
