@@ -1,7 +1,10 @@
 import configureStore from './store/store';
+import App from './components/app'
 
-// import React from 'react';
-// import ReactDOM from 'react-dom';
+import React from 'react';
+import ReactDOM from 'react-dom';
+import Root from './components/root';
+import allTodos from './reducers/selectors';
 
 document.addEventListener("DOMContentLoaded", function(){
     console.log('in event listener')
@@ -9,6 +12,7 @@ document.addEventListener("DOMContentLoaded", function(){
     window.store = store;
     window.store.getState(); 
     const root = document.getElementById('root');
+    ReactDOM.render(<Root store={store} />, root);
 });
 
 
