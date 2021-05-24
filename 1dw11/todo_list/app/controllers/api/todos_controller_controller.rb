@@ -35,7 +35,7 @@ class Api::TodosControllerController < ApplicationController
     end
 
     def todo_params(params)
-        todo_params = params.require(:todo)permit(:title, :body, :done)
+        params.require(:todo).permit(:title, :body, :done)
     end
 
 end
