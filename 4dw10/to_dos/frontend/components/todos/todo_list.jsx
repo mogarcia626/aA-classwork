@@ -8,7 +8,7 @@ class TodoList extends React.Component {
         const receiveTodo = this.props.receiveTodo
         const todoItems = todos.map(todo => {
             return (
-            <TodoListItem key={`todo-item${todo.id}`} todo= {todo}/>
+            <TodoListItem key={`todo-item${todo.id}`} todo= {todo} receiveTodo = {receiveTodo}/>
         )})
             
         

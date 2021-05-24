@@ -22,7 +22,4 @@ const mapDispatchToProps = dispatch => ({
     receiveTodo: todo => dispatch(receiveTodo(todo))
 });
 
-export default connect(
-    mapStateToProps,
-    mapDispatchToProps
-)(TodoList);
+export default connect(mapStateToProps, mapDispatchToProps)(TodoList);
