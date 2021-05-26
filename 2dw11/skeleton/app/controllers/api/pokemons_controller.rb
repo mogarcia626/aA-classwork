@@ -1,7 +1,7 @@
 class Api::PokemonsController < ApplicationController
-  def index
-    @pokemons = Pokemon.all
-    render :index
+
+  def create
+
   end
 
   def show
@@ -9,4 +9,8 @@ class Api::PokemonsController < ApplicationController
     render :show
   end
 
+  def index
+    @pokemons = Pokemon.all
+    render :index
+  end
 end
